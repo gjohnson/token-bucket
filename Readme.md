@@ -18,11 +18,13 @@
 This will invoke the function the first 10 times, but then throttle the next 5.
 
 ```js
+var Bucket = require('..');
+
 var bucket = new Bucket(10);
 var x = 15;
 
 while (--x) {
-  throttle(function () {
+  bucket.throttle(function () {
     console.log('yo!');
   });
 }
