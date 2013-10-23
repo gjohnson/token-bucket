@@ -1,0 +1,16 @@
+{
+  "name": "token-bucket",
+  "repo": "gjohnson/token-bucket",
+  "description": "Function throttling the token-bucket algorithm",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/debug": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

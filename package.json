@@ -1,0 +1,28 @@
+{
+  "name": "token-bucket",
+  "version": "0.0.1",
+  "description": "Function throttling via the token-bucket algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gjohnson/token-bucket"
+  },
+  "keywords": [
+    "token-bucket",
+    "throttle",
+    "ratelimit"
+  ],
+  "author": "Garrett Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gjohnson/token-bucket/issues"
+  },
+  "dependencies": {
+    "debug": "~0.7.2",
+    "should": "~2.0.2",
+    "mocha": "~1.13.0"
+  }
+}
