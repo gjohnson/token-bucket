@@ -30,6 +30,10 @@ while (--x) {
 }
 ```
 
+## Notes
+
+This is similar to [node-rate-limiter](https://github.com/jhurliman/node-rate-limiter), but with more opinions and less options.
+
 ## License
 
   MIT
