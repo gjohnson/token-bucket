@@ -34,7 +34,7 @@ function Bucket (options) {
  * @public
  */
 
-Bucket.prototype.throttle = function (fn) {
+Bucket.prototype.throttle = function (tokens, fn) {
   if (this.capacity === Infinity) return fn();
 
   var self = this;
@@ -54,7 +54,7 @@ Bucket.prototype.throttle = function (fn) {
   }
 
   debug('calling');
-  this.left -= 1;
+  this.left -= tokens;
   fn.call(null);
 };
 
