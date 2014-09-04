@@ -19,9 +19,11 @@ module.exports = Bucket;
  * @public
  */
 
-function Bucket (capacity) {
-  this.capacity = capacity || Infinity;
-  this.left = capacity;
+function Bucket (options) {
+  options = options || {};
+  this.capacity = options.capacity || Infinity;
+  this.refillRate = options.refillRate || 1;
+  this.left = this.capacity;
   this.last = time();
 }
 
@@ -32,13 +34,13 @@ function Bucket (capacity) {
  * @public
  */
 
-Bucket.prototype.throttle = function (fn) {
+Bucket.prototype.throttle = function (tokens, fn) {
   if (this.capacity === Infinity) return fn();
 
   var self = this;
   var now = time();
-  var delta = Math.max(now - this.last, 0);
-  var amount = delta * 0.001;
+  var delta = Math.max(now - this.last, 0) / 1000;
+  var amount = delta * this.refillRate; // Refill rate is per second
 
   this.last = now;
   this.left = Math.min(this.left + amount, this.capacity);
@@ -52,7 +54,7 @@ Bucket.prototype.throttle = function (fn) {
   }
 
   debug('calling');
-  this.left -= 1;
+  this.left -= tokens;
   fn.call(null);
 };
 
